@@ -66,27 +66,7 @@ const ModelContent = ({ movieShowModelTrailer, movieShowDetailsData }) => {
        </div>
       </div>
 
-      {/* <span>Welcome</span>
-
-      {
-        movieShowModelTrailer.map(val => (
-            <span key={val.id}>
-            <div>
-               {  val.name}
-            </div>   
-
-            {
-               (val.name === 'Official Trailer' || val.name === 'Main Trailer') && <Button variant='danger' href={`https://www.youtube.com/watch?v=${val.key}`} target='blank'>
-                    <span>
-                        <FaYoutube />
-                    </span>
-                    <span>
-                        Watch Trailer
-                    </span>
-                    </Button>
-            } 
-          
-            </span> */}
+      
     </>
   );
 };

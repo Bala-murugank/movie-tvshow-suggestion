@@ -25,7 +25,7 @@ const Search = () => {
         }&page=${page}&include_adult=false`
       )
       .then((res) => {
-        console.log(res);
+        
         setSearchData(res.data.results);
       });
   }, [type, seachQurey,page]);
@@ -39,7 +39,7 @@ const Search = () => {
         style={{ width: 400 }}
         onChange={(event) => {
           setSearchQuary(event.target.value);
-          console.log(type);
+          
         }}
       />
 

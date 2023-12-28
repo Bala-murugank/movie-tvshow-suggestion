@@ -7,8 +7,8 @@ import { img_300, unavailable } from "../../Config/config";
 import Pagination from "../Pagination/Pagination";
 import useGenres from "../hooks/useGenres";
 import Genres from "../Genres/Genres";
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 import MovieShowDetailsModel from "../MovieShowDetailsModel/MovieShowDetailsModel";
 export const movieGeners = React.createContext();
 
@@ -21,13 +21,6 @@ const Movies = () => {
   const [page, setPage] = useState(1);
 
   const genreforURL = useGenres(selectedGenres);
-
-  const movieGenresData = {
-    genres,
-    selectedGenres,
-    setGenres,
-    setSelectedGenres,
-  };
 
   useEffect(() => {
     axios
@@ -42,15 +35,17 @@ const Movies = () => {
 
   return (
     <div className="movie_section">
-    
       <>
         <span className="pageTitle">MOVIES TODAY</span>
       </>
       <>
-       
-        
-          <Genres genres={genres} selectedGenres={selectedGenres} setGenres={setGenres} setSelectedGenres={setSelectedGenres} media_type= {"movie"} />
-       
+        <Genres
+          genres={genres}
+          selectedGenres={selectedGenres}
+          setGenres={setGenres}
+          setSelectedGenres={setSelectedGenres}
+          media_type={"movie"}
+        />
       </>
       <>
         <div className="movies">
@@ -60,28 +55,33 @@ const Movies = () => {
               style={{ height: 500, width: 320 }}
               className="movieList"
               id={movieList.id}
-              media_type={'movie'}
-             
+              media_type={"movie"}
             >
-             {console.log(movieList)}
-
               <span className="NoteBadge">
-                <CircularProgressbar  value={Math.floor(movieList.vote_average)}  circleRatio={10} text={Math.floor(movieList.vote_average)+ "0%"}
-                styles={{
-                  root : {},
-                  path :{
-                    stroke: Math.floor(movieList.vote_average) === 0 ?  'rgb(218,32,46)' :  Math.floor(movieList.vote_average) >=  7 ?  'rgb(90,219,82)' : 'rgb(219,200,82)',
-                    strokeLinecap: 'round',
-                  },
-                  trail :{
-                    stroke: "black"
-                  },
-                   text :{
-                     fontSize : '30px',
-                     fill : 'black'
-                   },
-                 
-                }}/>
+                <CircularProgressbar
+                  value={Math.floor(movieList.vote_average)}
+                  circleRatio={10}
+                  text={Math.floor(movieList.vote_average) + "0%"}
+                  styles={{
+                    root: {},
+                    path: {
+                      stroke:
+                        Math.floor(movieList.vote_average) === 0
+                          ? "rgb(218,32,46)"
+                          : Math.floor(movieList.vote_average) >= 7
+                          ? "rgb(90,219,82)"
+                          : "rgb(219,200,82)",
+                      strokeLinecap: "round",
+                    },
+                    trail: {
+                      stroke: "black",
+                    },
+                    text: {
+                      fontSize: "30px",
+                      fill: "black",
+                    },
+                  }}
+                />
               </span>
               <div>
                 <img
@@ -98,19 +98,14 @@ const Movies = () => {
               </div>
               {/* <Badge className="badge">9</Badge> */}
 
-              <div
-                style={{ height: 140, width: 320 }}
-                className="movie_name"
-              >
+              <div style={{ height: 140, width: 320 }} className="movie_name">
                 <div>
                   <span className="movie_title">
                     {movieList.title || movieList.name}
                   </span>
                 </div>
                 <div className="movie_type_data">
-                  <span>
-                   Movie
-                  </span>
+                  <span>Movie</span>
                   <span>
                     {movieList.release_date
                       ? movieList.release_date
